@@ -68,7 +68,6 @@ $user = $stmt->fetch();
   <div class="modal">
     <div class="modal-content">
       <span class="close" onclick="window.location.href='<?php echo url('index.php'); ?>'">&times;</span>
-      <h2>Edit Account</h2>
 
       <?php if ($error): ?>
         <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
