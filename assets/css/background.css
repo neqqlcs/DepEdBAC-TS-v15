@@ -1,0 +1,19 @@
+/* Base styles for the entire application */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fdf0d3;
+}
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Global box-sizing rule */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
