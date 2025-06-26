@@ -1,12 +1,12 @@
 /* Base styles for the accounts container */
         .accounts-container {
-            max-width: 800px; 
+            max-width: 1000px;
             margin: 40px auto;
             background: #fff;
-            padding: 20px; 
-            border-radius: 8px; 
+            padding: 20px;
+            border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center; 
+            text-align: center;
             position: relative;
             margin-top: 100px; /* Adjust if your header height changes */
             box-sizing: border-box; /* Ensures padding/border are included in width/height */
@@ -20,7 +20,7 @@
 
         .accounts-container th,
         .accounts-container td {
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ddd;
             text-align: left;
         }
@@ -202,6 +202,48 @@
             margin-left: 5px;
             transition: background 0.2s;
         }
-        .account-delete-btn:hover { 
+        .account-delete-btn:hover {
             background: #e66f6f;
+        }
+
+        /* Icon button styles */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border-radius: 4px;
+            margin: 0;
+            border: none;
+            overflow: hidden;
+        }
+
+        .edit-btn.icon-btn {
+            background-color: #0d47a1;
+        }
+
+        .account-delete-btn.icon-btn {
+            background-color: #a31515;
+        }
+
+        .action-icon {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            filter: brightness(0) invert(1); /* Make icons white */
+        }
+
+        /* Ensure proper spacing between icon buttons on mobile */
+        @media (max-width: 500px) {
+            .icon-btn {
+                margin: 3px;
+            }
         }

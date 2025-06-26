@@ -123,6 +123,7 @@ $accounts = $stmt->fetchAll();
                     <th>Username</th>
                     <th>Role</th>
                     <th>Office ID and Name</th>
+                    <th>Position</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -134,9 +135,16 @@ $accounts = $stmt->fetchAll();
                         <td data-label="Username"><?php echo htmlspecialchars($account['username']); ?></td>
                         <td data-label="Role"><?php echo ($account['admin'] == 1) ? "Admin" : "User"; ?></td>
                         <td data-label="Office"><?php echo htmlspecialchars($account['officeID'] . ' - ' . ($account['officename'] ?? "")); ?></td>
+                        <td data-label="Position"><?php echo htmlspecialchars($account['position'] ?? ""); ?></td>
                         <td data-label="Actions">
-                            <button class="edit-btn" data-id="<?php echo $account['userID']; ?>">Edit</button>
-                            <button class="account-delete-btn" data-id="<?php echo $account['userID']; ?>">Delete</button>
+                            <div class="action-buttons">
+                                <button class="edit-btn icon-btn" data-id="<?php echo $account['userID']; ?>">
+                                    <img src="assets/images/Edit_icon.png" alt="Edit" class="action-icon" width:24px;height:24px;>
+                                </button>
+                                <button class="account-delete-btn icon-btn" data-id="<?php echo $account['userID']; ?>">
+                                    <img src="assets/images/delete_icon.png" alt="Delete" class="action-icon" width:24px;height:24px;>
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -208,6 +216,7 @@ $accounts = $stmt->fetchAll();
                     const username = row.querySelector('[data-label="Username"]').textContent.trim();
                     const role = row.querySelector('[data-label="Role"]').textContent.trim();
                     const office = row.querySelector('[data-label="Office"]').textContent.trim();
+                    const position = row.querySelector('[data-label="Position"]').textContent.trim();
                     
                     // Populate the form fields
                     document.getElementById('editUserID').value = userID;
@@ -217,7 +226,7 @@ $accounts = $stmt->fetchAll();
                     document.getElementById('editUsername').value = username;
                     document.getElementById('editPassword').value = "";
                     document.getElementById('editAdmin').checked = (role === "Admin");
-                    document.getElementById('editPosition').value = "";
+                    document.getElementById('editPosition').value = position;
                     
                     // Set the selected option for the office dropdown
                     const editOfficeSelect = document.getElementById('editOffice');
